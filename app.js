@@ -12,6 +12,8 @@ let userChoice;
 let computerChoice;
 let result;
 
+const root = document.documentElement;
+
 buttons.forEach(choice=> choice.addEventListener("click",(e)=>{
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
@@ -72,14 +74,17 @@ function generateResult(){
         case "Computer Win!":
             resultDisplay.style.setProperty('color','rgb(255, 47, 47)');
             resultDisplay.style.setProperty('background-color','rgba(52, 16, 16, 0.609)');
+            root.style.setProperty('--container-shadow-color', 'rgb(255, 47, 47)');
             break;
         case "Player Win!":
-            resultDisplay.style.setProperty('color','rgb(106, 255, 47)');
+            resultDisplay.style.setProperty('color','rgb(37, 186, 11)');
             resultDisplay.style.setProperty('background-color','rgba(16, 52, 18, 0.609)');
+            root.style.setProperty('--container-shadow-color', 'rgb(37, 186, 11)');
             break;  
         default:
             resultDisplay.style.setProperty('color','rgb(97, 97, 97)');
             resultDisplay.style.setProperty('background-color','rgba(35, 35, 35, 0.609)');
+            root.style.setProperty('--container-shadow-color', 'rgb(97, 97, 97)');
             break;
     }
     resultDisplay.innerHTML = result;
@@ -93,4 +98,5 @@ playAgainButton.addEventListener('click',()=>{
     userChoiceImg.setAttribute('src','img/start.png');
     computerChoiceDisplay.innerHTML = "?";
     userChoiceDisplay.innerHTML = "?";
+    root.style.setProperty('--container-shadow-color', 'rgb(97, 97, 97)');
 })
