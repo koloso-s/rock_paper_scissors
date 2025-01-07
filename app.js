@@ -89,4 +89,8 @@ function generateResult(){
 playAgainButton.addEventListener('click',()=>{
     selectionPage.style.setProperty('display','flex');
     resultPage.style.setProperty('display','none');
+    computerChoiceImg.setAttribute('src','img/start.png');
+    userChoiceImg.setAttribute('src','img/start.png');
+    computerChoiceDisplay.innerHTML = "?";
+    userChoiceDisplay.innerHTML = "?";
 })
