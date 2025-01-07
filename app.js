@@ -1,8 +1,10 @@
 const computerChoiceDisplay = document.getElementById('computer-choice');
 const userChoiceDisplay = document.getElementById('user-choice');
 const resultDisplay = document.getElementById('result');
-const buttons = document.querySelectorAll('button');
-const selectionPage = document.getElementById("select-modal")
+const buttons = document.querySelectorAll('.btn-secondary');
+const selectionPage = document.getElementById("select-modal");
+const resultPage = document.getElementById("result-modal");
+const playAgainButton = document.getElementById('play-again');
 let userChoice;
 let computerChoice;
 let result;
@@ -37,25 +39,45 @@ function generateComputerChoice(){
 }
 
 function generateResult(){
-    if(userChoice == computerChoice)result = "Draw";
+    if(userChoice == computerChoice)result = "Draw!";
     switch (userChoice) {
         case "rock":
-            if(computerChoice == "paper")result = "computer win";
-            if(computerChoice == "scissors")result= "player win";
+            if(computerChoice == "paper")result = "Computer Win!";
+            if(computerChoice == "scissors")result= "Player Win!";
             break;
 
         case "paper":
-            if(computerChoice == "scissors")result = "computer win";
-            if(computerChoice == "rock")result = "player win";
+            if(computerChoice == "scissors")result = "Computer Win!";
+            if(computerChoice == "rock")result = "Player Win!";
             break;  
 
         case "scissors":
-            if(computerChoice == "rock")result = "computer win";
-            if(computerChoice == "paper")result = "player win";
+            if(computerChoice == "rock")result = "Computer Win!";
+            if(computerChoice == "paper")result = "Player Win!";
             break;
 
         default:
             break;
     }
+    switch (result) {
+        case "Computer Win!":
+            resultDisplay.style.setProperty('color','rgb(255, 47, 47)');
+            resultDisplay.style.setProperty('background-color','rgba(52, 16, 16, 0.609)');
+            break;
+        case "Player Win!":
+            resultDisplay.style.setProperty('color','rgb(106, 255, 47)');
+            resultDisplay.style.setProperty('background-color','rgba(16, 52, 18, 0.609)');
+            break;  
+        default:
+            resultDisplay.style.setProperty('color','rgb(97, 97, 97)');
+            resultDisplay.style.setProperty('background-color','rgba(35, 35, 35, 0.609)');
+            break;
+    }
     resultDisplay.innerHTML = result;
+    resultPage.style.setProperty('display','flex');
 }
+
+playAgainButton.addEventListener('click',()=>{
+    selectionPage.style.setProperty('display','flex');
+    resultPage.style.setProperty('display','none');
+})
