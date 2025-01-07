@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background-color: rgb(160, 236, 255);
+    --container-color: rgb(59, 98, 253);
+}
+body{
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    background-color: var(--container-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 50%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px rgba(31, 31, 31, 0.847);
+}
+.card-text{
+    font-size: 2em;
+}
+.card-text,.card-title{
+    text-align: center;
+}
+.card{
+    padding: 20px;
+    width: 20rem;
+    box-shadow: 2px 2px 20px rgba(26, 26, 26, 0.681);
+}
