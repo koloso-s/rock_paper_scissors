@@ -5,6 +5,9 @@ const buttons = document.querySelectorAll('.btn-secondary');
 const selectionPage = document.getElementById("select-modal");
 const resultPage = document.getElementById("result-modal");
 const playAgainButton = document.getElementById('play-again');
+const computerChoiceImg = document.getElementById('computer-choice-img');
+const userChoiceImg = document.getElementById('user-choice-img');
+
 let userChoice;
 let computerChoice;
 let result;
@@ -22,14 +25,17 @@ function generateComputerChoice(){
     switch (randomNumber) {
         case 0:
             computerChoice = "rock";
+            computerChoiceImg.setAttribute('src','img/rock.png');
             break;
 
         case 1:
             computerChoice = "paper";
+            computerChoiceImg.setAttribute('src','img/paper.png');
             break;
 
         case 2:
             computerChoice = "scissors";
+            computerChoiceImg.setAttribute('src','img/scissors.png');
             break;
 
         default:
@@ -44,16 +50,19 @@ function generateResult(){
         case "rock":
             if(computerChoice == "paper")result = "Computer Win!";
             if(computerChoice == "scissors")result= "Player Win!";
+            userChoiceImg.setAttribute('src','img/rock.png');
             break;
 
         case "paper":
             if(computerChoice == "scissors")result = "Computer Win!";
             if(computerChoice == "rock")result = "Player Win!";
+            userChoiceImg.setAttribute('src','img/paper.png');
             break;  
 
         case "scissors":
             if(computerChoice == "rock")result = "Computer Win!";
             if(computerChoice == "paper")result = "Player Win!";
+            userChoiceImg.setAttribute('src','img/scissors.png');
             break;
 
         default:
