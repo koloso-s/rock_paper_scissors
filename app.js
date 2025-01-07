@@ -2,6 +2,7 @@ const computerChoiceDisplay = document.getElementById('computer-choice');
 const userChoiceDisplay = document.getElementById('user-choice');
 const resultDisplay = document.getElementById('result');
 const buttons = document.querySelectorAll('button');
+const selectionPage = document.getElementById("select-modal")
 let userChoice;
 let computerChoice;
 let result;
@@ -9,6 +10,7 @@ let result;
 buttons.forEach(choice=> choice.addEventListener("click",(e)=>{
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
+    selectionPage.style.setProperty('display','none');
     generateComputerChoice();
     generateResult();
 }))
