@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
@@ -26,15 +27,18 @@
     <div class="selection-page" id="select-modal">
         <h2>Choose your option:</h2>
         <div class="buttons">
-            <button type="button" class="btn btn-select" id="rock">Rock</button>
-            <button type="button" class="btn btn-select" id="paper">Paper</button>
-            <button type="button" class="btn btn-select" id="scissors">Scissors</button>
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="rock">Rock</button></div>
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="paper">Paper</button></div>
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="scissors">Scissors</button></div>
         </div>
     </div>
     <div class="result-page" id="result-modal">
         <h2>Result:</h2>
         <span id="result">you win</span>
         <button type="button" class="btn btn-play-again" id="play-again">Play again</button>
+    </div>
+    <div class="change-of-theme">
+        <i class="fa-solid fa-gear"></i>
     </div>
     <script src="app.js"></script>
 </body>

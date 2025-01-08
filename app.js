@@ -100,3 +100,17 @@ playAgainButton.addEventListener('click',()=>{
     userChoiceDisplay.innerHTML = "?";
     root.style.setProperty('--container-shadow-color', 'rgb(97, 97, 97)');
 })
+let theme = "dark";
+document.querySelector('.change-of-theme').addEventListener('click',()=>{
+    if(theme == "dark"){
+        root.style.setProperty('--background-color', 'rgb(157, 157, 157)');
+        root.style.setProperty('--container-color', 'rgb(122, 122, 122)');
+        root.style.setProperty('--background-color-card', 'rgb(255, 255, 255)');
+        theme = "white";
+    }else{
+        root.style.setProperty('--background-color', 'rgb(29, 29, 29)');
+        root.style.setProperty('--container-color', 'rgb(15, 15, 15)');
+        root.style.setProperty('--background-color-card', 'rgb(0, 0, 0)');
+        theme = "dark";
+    }
+})

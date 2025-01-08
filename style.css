@@ -65,7 +65,7 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -82,18 +82,22 @@ body{
     width: 70%;
     display: flex;
     justify-content: space-evenly;
-    align-items: start;
+    align-items: end;
 
+}
+.select-btn-parent{
+    background-color: var(--background-color-card);
+    border: 3px solid;
+    box-shadow: 0px 0px 10px var(--container-shadow-color);
+    border-radius: 8px;
 }
 .btn-select{
     font-size: 5em;
-    border-radius: 8px;
     padding: 5px 15px;
     background:var(--card-text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    border: 3px solid;
-    box-shadow: 0px 0px 10px var(--container-shadow-color);
+    border: none;
 }
 .result-page{
     width: 100vw;
@@ -103,7 +107,7 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -140,4 +144,26 @@ body{
 .btn:hover{
     transform: scale(1.1);
     box-shadow: 0px 0px 20px rgb(97, 97, 97);
+}
+.change-of-theme{
+    background-color: var(--background-color-card);
+    padding: 20px;
+    border-radius: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    z-index: 4;
+    box-shadow: 0px 0px 7px var(--container-shadow-color);
+}
+.change-of-theme>i{
+    font-size: 2em;
+    background:var(--card-text-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.1s;
+
+}
+.change-of-theme>i:hover{
+    transform: rotate(90deg);
 }
