@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style_two_hand.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Computer Choice</h2>
+        <div class="computer-section">
+            <div class="card-computer">
+                <div class="card-body">
+                    <p class="card-text computer-choice">?<p>
+                    </div>
+                    <img src="../img/start.png" alt="not selected" class="computer-choice-img">
+            </div>
+            <div class="card-computer">
+                  <div class="card-body">
+                    <p class="card-text computer-choice">?</p>
+                    </div>
+                    <img src="../img/start.png" alt="not selected" class="computer-choice-img">
+            </div>
+        </div>
+        <div class="player-section">
+            <div class="card-user">
+                <div class="card-body">
+                    <p class="card-text user-choice">?<p>
+                    </div>
+                    <img src="../img/start.png" alt="not selected" class="user-choice-img">
+            </div>
+            <div class="card-user">
+                  <div class="card-body">
+                    <p class="card-text user-choice">?</p>
+                    </div>
+                    <img src="../img/start.png" alt="not selected" class="user-choice-img">
+            </div>
+        </div>
+        <h2>Your Choice</h2>
+    </div>
+    <div class="selection-page" id="select-modal">
+        <h2 id="choose-title">Choose your option:</h2>
+        <div class="buttons">
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="rock">Rock</button></div>
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="paper">Paper</button></div>
+            <div class="select-btn-parent btn"><button type="button" class="btn-select" id="scissors">Scissors</button></div>
+        </div>
+    </div>
+    <div class="result-page" id="result-modal">
+        <h2>Result:</h2>
+        <span id="result">you win</span>
+        <button type="button" class="btn btn-play-again" id="play-again">Play again</button>
+    </div>
+    <div class="change-of-theme">
+        <i class="fa-solid fa-gear"></i>
+    </div>
+    <div class="back-to-menu">
+        <a href="../html/index.html"><i class="fa-solid fa-arrow-left-long"></i></a>
+    </div>
+    <script src="../js/app_two_hand.js"></script>
+</body>
+</html>
