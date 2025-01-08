@@ -28,34 +28,21 @@ body{
     align-items: center;
     justify-content: space-evenly;
     width: 60%;
-    height: 60%;
+    height: 30%;
     border-radius: 10px;
     box-shadow: 0px 0px 19px var(--container-shadow-color);
 }
-.card-text{
-    font-size: 3em;
-    text-align: center;
-    background:var(--card-text-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.card-title{
-    background:var(--card-text-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2em;
-    text-align: center;
-}
-.card{
+.container>.game-title{
     padding: 20px;
-    width: 20rem;
     border-radius: 10px;
     box-shadow: 2px 2px 20px var(--container-shadow-color);
     background-color: var(--background-color-card);
 }
-.card>img{
-    width: 100%;
-    filter: drop-shadow(0px 0px 6px var(--container-shadow-color));
+.container>.game-title>h1{
+    background:var(--card-text-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3vw;
 }
 .selection-page{
     width: 100vw;
@@ -72,7 +59,7 @@ body{
 }
 .selection-page>h2{
     height: 40%;
-    font-size: 7em;
+    font-size: 6vw;
     background:var(--card-text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,8 +72,13 @@ body{
     align-items: end;
 
 }
+.selection-page>.buttons>a{
+    background-color: wheat;
+    border: 1px solid  white;
+}
 .select-btn-parent{
     background-color: var(--background-color-card);
+    border: 3px solid;
     box-shadow: 0px 0px 10px var(--container-shadow-color);
     border-radius: 8px;
 }
@@ -97,45 +89,6 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border: none;
-}
-.result-page{
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--modal-background);
-    z-index: 3;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-.result-page>h2{
-    height: 30%;
-    margin-top: 30px;
-    font-size: 8em;
-    background:var(--card-text-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.result-page>#result{
-    padding: 30px;
-    width: 100%;
-    text-align: center;
-    font-size: 4rem;
-    font-weight: bold;
-    color: rgb(51, 51, 51);
-    background-color: rgba(35, 35, 35, 0.609);
-}
-.btn-play-again{
-    font-size: 5em;
-    border-radius: 8px;
-    padding: 5px 15px;
-    background:var(--card-text-color);
-    border: 3px solid;
-    box-shadow: 0px 0px 10px rgb(97, 97, 97);
-    margin: 40px;
 }
 .btn{
     transition: 0.1s;
@@ -155,7 +108,7 @@ body{
     z-index: 4;
     box-shadow: 0px 0px 7px var(--container-shadow-color);
 }
-.change-of-theme>i,.back-to-menu>a{
+.change-of-theme>i{
     font-size: 2em;
     background:var(--card-text-color);
     -webkit-background-clip: text;
@@ -165,15 +118,4 @@ body{
 }
 .change-of-theme>i:hover{
     transform: rotate(90deg);
-}
-.back-to-menu{
-    background-color: var(--background-color-card);
-    padding: 20px;
-    border-radius: 12px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 10px;
-    z-index: 4;
-    box-shadow: 0px 0px 7px var(--container-shadow-color);
 }

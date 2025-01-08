@@ -105,7 +105,7 @@ document.querySelector('.change-of-theme').addEventListener('click',()=>{
     if(theme == "dark"){
         root.style.setProperty('--background-color', 'rgb(157, 157, 157)');
         root.style.setProperty('--container-color', 'rgb(122, 122, 122)');
-        root.style.setProperty('--background-color-card', 'rgb(255, 255, 255)');
+        root.style.setProperty('--background-color-card', 'rgb(220, 220, 220)');
         theme = "white";
     }else{
         root.style.setProperty('--background-color', 'rgb(29, 29, 29)');
