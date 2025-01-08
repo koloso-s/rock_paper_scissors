@@ -27,17 +27,17 @@ function generateComputerChoice(){
     switch (randomNumber) {
         case 0:
             computerChoice = "rock";
-            computerChoiceImg.setAttribute('src','img/rock.png');
+            computerChoiceImg.setAttribute('src','../img/rock.png');
             break;
 
         case 1:
             computerChoice = "paper";
-            computerChoiceImg.setAttribute('src','img/paper.png');
+            computerChoiceImg.setAttribute('src','../img/paper.png');
             break;
 
         case 2:
             computerChoice = "scissors";
-            computerChoiceImg.setAttribute('src','img/scissors.png');
+            computerChoiceImg.setAttribute('src','../img/scissors.png');
             break;
 
         default:
@@ -45,26 +45,28 @@ function generateComputerChoice(){
     }
     computerChoiceDisplay.innerHTML = computerChoice;
 }
-
+function setPropertyFunction(object,Property,value){
+    object.style.setProperty(Property,value);
+}
 function generateResult(){
     if(userChoice == computerChoice)result = "Draw!";
     switch (userChoice) {
         case "rock":
             if(computerChoice == "paper")result = "Computer Win!";
             if(computerChoice == "scissors")result= "Player Win!";
-            userChoiceImg.setAttribute('src','img/rock.png');
+            userChoiceImg.setAttribute('src','../img/rock.png');
             break;
 
         case "paper":
             if(computerChoice == "scissors")result = "Computer Win!";
             if(computerChoice == "rock")result = "Player Win!";
-            userChoiceImg.setAttribute('src','img/paper.png');
+            userChoiceImg.setAttribute('src','../img/paper.png');
             break;  
 
         case "scissors":
             if(computerChoice == "rock")result = "Computer Win!";
             if(computerChoice == "paper")result = "Player Win!";
-            userChoiceImg.setAttribute('src','img/scissors.png');
+            userChoiceImg.setAttribute('src','../img/scissors.png');
             break;
 
         default:
@@ -72,45 +74,45 @@ function generateResult(){
     }
     switch (result) {
         case "Computer Win!":
-            resultDisplay.style.setProperty('color','rgb(255, 47, 47)');
-            resultDisplay.style.setProperty('background-color','rgba(52, 16, 16, 0.609)');
-            root.style.setProperty('--container-shadow-color', 'rgb(255, 47, 47)');
+            setPropertyFunction(resultDisplay,'color','rgb(255, 47, 47)')
+            setPropertyFunction(resultDisplay,'background-color','rgba(52, 16, 16, 0.609)');
+            setPropertyFunction(root,'--container-shadow-color', 'rgb(255, 47, 47)');
             break;
         case "Player Win!":
-            resultDisplay.style.setProperty('color','rgb(37, 186, 11)');
-            resultDisplay.style.setProperty('background-color','rgba(16, 52, 18, 0.609)');
-            root.style.setProperty('--container-shadow-color', 'rgb(37, 186, 11)');
+            setPropertyFunction(resultDisplay,'color','rgb(37, 186, 11)');
+            setPropertyFunction(resultDisplay,'background-color','rgba(16, 52, 18, 0.609)');
+            setPropertyFunction(root,'--container-shadow-color', 'rgb(37, 186, 11)');
             break;  
         default:
-            resultDisplay.style.setProperty('color','rgb(97, 97, 97)');
-            resultDisplay.style.setProperty('background-color','rgba(35, 35, 35, 0.609)');
-            root.style.setProperty('--container-shadow-color', 'rgb(97, 97, 97)');
+            setPropertyFunction(resultDisplay,'color','rgb(97, 97, 97)');
+            setPropertyFunction(resultDisplay,'background-color','rgba(35, 35, 35, 0.609)');
+            setPropertyFunction(root,'--container-shadow-color', 'rgb(97, 97, 97)');
             break;
     }
     resultDisplay.innerHTML = result;
-    resultPage.style.setProperty('display','flex');
+    setPropertyFunction(resultPage,'display','flex');
 }
 
 playAgainButton.addEventListener('click',()=>{
-    selectionPage.style.setProperty('display','flex');
-    resultPage.style.setProperty('display','none');
-    computerChoiceImg.setAttribute('src','img/start.png');
-    userChoiceImg.setAttribute('src','img/start.png');
+    setPropertyFunction(selectionPage,'display','flex');
+    setPropertyFunction(resultPage,'display','none');
+    computerChoiceImg.setAttribute('src','../img/start.png');
+    userChoiceImg.setAttribute('src','../img/start.png');
     computerChoiceDisplay.innerHTML = "?";
     userChoiceDisplay.innerHTML = "?";
-    root.style.setProperty('--container-shadow-color', 'rgb(97, 97, 97)');
+    setPropertyFunction(root,'--container-shadow-color', 'rgb(97, 97, 97)');
 })
 let theme = "dark";
 document.querySelector('.change-of-theme').addEventListener('click',()=>{
     if(theme == "dark"){
-        root.style.setProperty('--background-color', 'rgb(157, 157, 157)');
-        root.style.setProperty('--container-color', 'rgb(122, 122, 122)');
-        root.style.setProperty('--background-color-card', 'rgb(220, 220, 220)');
+        setPropertyFunction(root,'--background-color', 'rgb(157, 157, 157)');
+        setPropertyFunction(root,'--container-color', 'rgb(122, 122, 122)');
+        setPropertyFunction(root,'--background-color-card', 'rgb(220, 220, 220)');
         theme = "white";
     }else{
-        root.style.setProperty('--background-color', 'rgb(29, 29, 29)');
-        root.style.setProperty('--container-color', 'rgb(15, 15, 15)');
-        root.style.setProperty('--background-color-card', 'rgb(0, 0, 0)');
+        setPropertyFunction(root,'--background-color', 'rgb(29, 29, 29)');
+        setPropertyFunction(root,'--container-color', 'rgb(15, 15, 15)');
+        setPropertyFunction(root,'--background-color-card', 'rgb(0, 0, 0)');
         theme = "dark";
     }
 })
