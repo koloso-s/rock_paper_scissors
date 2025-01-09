@@ -13,6 +13,7 @@
     --card-text-color:radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
     radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
     --card-check:rgb(41, 41, 41);
+    --top-boxes-shadow:rgb(97, 97, 97);
 }
 body{
     background-color: var(--background-color);
@@ -29,7 +30,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
     width: 60vw;
-    height: 80vh;
+    height: 70vh;
     border-radius: 10px;
     box-shadow: 0px 0px 19px var(--container-shadow-color);
 }
@@ -53,7 +54,7 @@ body{
 }
 .card-user,.card-computer{
     padding: 20px;
-    width: 13rem;
+    width: 10vw;
     border-radius: 10px;
     box-shadow: 2px 2px 20px var(--container-shadow-color);
     background-color: var(--background-color-card);
@@ -64,7 +65,6 @@ body{
 }
 .card-checked{
     background-color: var(--card-check);
-    transform: scale(1.1);
 }
 .selection-page{
     width: 100vw;
@@ -80,7 +80,7 @@ body{
     justify-content: space-around;
 }
 .selection-page>h2{
-    height: 40%;
+    height: 50%;
     font-size: 7em;
     background:var(--card-text-color);
     -webkit-background-clip: text;
@@ -121,9 +121,9 @@ body{
     justify-content: space-between;
 }
 .result-page>h2{
-    height: 30%;
-    margin-top: 30px;
-    font-size: 8em;
+    height: 20%;
+    margin-top: 10px;
+    font-size: 7vw;
     background:var(--card-text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -138,7 +138,7 @@ body{
     background-color: rgba(35, 35, 35, 0.609);
 }
 .btn-play-again{
-    font-size: 5em;
+    font-size: 4em;
     border-radius: 8px;
     padding: 5px 15px;
     background:var(--card-text-color);
@@ -162,9 +162,10 @@ body{
     top: 0;
     margin: 10px;
     z-index: 4;
-    box-shadow: 0px 0px 7px var(--container-shadow-color);
+    box-shadow: 0px 0px 7px var(--top-boxes-shadow);
+    cursor: pointer;
 }
-.change-of-theme>i,.back-to-menu>a{
+.change-of-theme>i,.back-to-menu>i{
     font-size: 2em;
     background:var(--card-text-color);
     -webkit-background-clip: text;
@@ -172,7 +173,7 @@ body{
     transition: 0.1s;
 
 }
-.change-of-theme>i:hover{
+.change-of-theme:hover i{
     transform: rotate(90deg);
 }
 .back-to-menu{
@@ -184,7 +185,7 @@ body{
     top: 0;
     margin: 10px;
     z-index: 4;
-    box-shadow: 0px 0px 7px var(--container-shadow-color);
+    box-shadow: 0px 0px 7px var(--top-boxes-shadow);
 }
 .clock{
     width: 100vw;

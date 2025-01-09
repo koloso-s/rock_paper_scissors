@@ -50,10 +50,11 @@ async function playerChoice() {
       choice.classList.add("card-checked");
     });
   });
-  ClockTitle.innerHTML = await ClockFunction();
-  ComputerOption();
-  UserOption();
-  ResultFunction();
+  await ClockFunction();
+    ComputerOption();
+    UserOption();
+    setPropertyFunction(Clock, "display", "none");
+    ResultFunction();
 }
 playerChoice();
 function clearCard(cards) {
@@ -67,7 +68,7 @@ async function ClockFunction() {
     setPropertyFunction(Clock, "display", "flex");
     setTimeout(() => (ClockTitle.innerHTML = "2"), "1000");
     setTimeout(() => (ClockTitle.innerHTML = "1"), "2000");
-    setTimeout(() => resolve("Time is up"), "3000");
+    setTimeout(() => resolve(true), "3000");
   });
 }
 let NumberComputerChoice;
@@ -209,7 +210,6 @@ playAgainButton.addEventListener("click", () => {
   showCard(UserCards);
   showCard(ComputerCards);
   chooseTitle.innerHTML = "Choose your option:";
-  setPropertyFunction(Clock, "display", "none");
   ClockTitle.innerHTML = "3";
   setPropertyFunction(root, "--container-shadow-color", "rgb(97, 97, 97)");
   NumberUserChoice = undefined;
@@ -219,13 +219,15 @@ let theme;
 function setTheme() {
   theme = localStorage.getItem("theme");
   if (theme != "dark") {
-    setPropertyFunction(root, "--background-color", "rgb(157, 157, 157)");
-    setPropertyFunction(root, "--container-color", "rgb(122, 122, 122)");
-    setPropertyFunction(root, "--background-color-card", "rgb(220, 220, 220)");
+    setPropertyFunction(root, "--background-color", "rgb(151, 151, 151)");
+    setPropertyFunction(root, "--container-color", "rgb(181, 181, 181)");
+    setPropertyFunction(root, "--background-color-card", "rgb(229, 229, 229)");
+    setPropertyFunction(root, "--card-check","rgb(163, 163, 163)");
   } else {
     setPropertyFunction(root, "--background-color", "rgb(29, 29, 29)");
     setPropertyFunction(root, "--container-color", "rgb(15, 15, 15)");
     setPropertyFunction(root, "--background-color-card", "rgb(0, 0, 0)");
+    setPropertyFunction(root, "--card-check","rgb(41, 41, 41)");
   }
 }
 setTheme();
