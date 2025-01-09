@@ -46,7 +46,7 @@ async function playerChoice() {
   generateComputerChoice();
   UserCards.forEach((choice) => {
     choice.addEventListener("click", () => {
-      clearCard();
+      clearCard(UserCards);
       choice.classList.add("card-checked");
     });
   });
@@ -56,15 +56,18 @@ async function playerChoice() {
   ResultFunction();
 }
 playerChoice();
-function clearCard() {
-  UserCards.forEach((choice) => choice.classList.remove("card-checked"));
+function clearCard(cards) {
+  cards.forEach((choice) => choice.classList.remove("card-checked"));
+}
+function showCard(cards) {
+  cards.forEach((choice) => setPropertyFunction(choice, "display", ""));
 }
 async function ClockFunction() {
   return new Promise((resolve) => {
     setPropertyFunction(Clock, "display", "flex");
     setTimeout(() => (ClockTitle.innerHTML = "2"), "1000");
     setTimeout(() => (ClockTitle.innerHTML = "1"), "2000");
-    setTimeout(() => resolve("time over"), "3000");
+    setTimeout(() => resolve("Time is up"), "3000");
   });
 }
 let NumberComputerChoice;
@@ -76,13 +79,15 @@ function ComputerOption() {
       setPropertyFunction(el, "display", "none");
   });
 }
-let NumberUserChoice = 0;
+let NumberUserChoice;
 function UserOption() {
   let i = 0;
   UserCards.forEach((el) => {
     if (el.className != "card-user card-checked")
       setPropertyFunction(el, "display", "none");
-    if (i == 1 && el.className == "card-user card-checked")
+    if (i == 0 && el.className == "card-user card-checked")
+      NumberUserChoice = 0;
+    else if (i == 1 && el.className == "card-user card-checked")
       NumberUserChoice = 1;
     i++;
   });
@@ -126,52 +131,89 @@ function generateUserImage(i) {
       userChoiceImg[i].setAttribute("src", "../img/scissors.png");
       break;
   }
-  //   switch (result) {
-  //     case "Computer Win!":
-  //       setPropertyFunction(resultDisplay, "color", "rgb(255, 47, 47)");
-  //       setPropertyFunction(
-  //         resultDisplay,
-  //         "background-color",
-  //         "rgba(52, 16, 16, 0.609)"
-  //       );
-  //       setPropertyFunction(root, "--container-shadow-color", "rgb(255, 47, 47)");
-  //       break;
-  //     case "Player Win!":
-  //       setPropertyFunction(resultDisplay, "color", "rgb(37, 186, 11)");
-  //       setPropertyFunction(
-  //         resultDisplay,
-  //         "background-color",
-  //         "rgba(16, 52, 18, 0.609)"
-  //       );
-  //       setPropertyFunction(root, "--container-shadow-color", "rgb(37, 186, 11)");
-  //       break;
-  //     default:
-  //       setPropertyFunction(resultDisplay, "color", "rgb(97, 97, 97)");
-  //       setPropertyFunction(
-  //         resultDisplay,
-  //         "background-color",
-  //         "rgba(35, 35, 35, 0.609)"
-  //       );
-  //       setPropertyFunction(root, "--container-shadow-color", "rgb(97, 97, 97)");
-  //       break;
-  //   }
-  //   resultDisplay.innerHTML = result;
-  //   setPropertyFunction(resultPage, "display", "flex");
 }
 function ResultFunction() {
-  console.log(NumberComputerChoice);
   console.log(NumberUserChoice);
-  console.log(computerChoice);
-  console.log(userChoice);
+
+  if (NumberUserChoice == undefined) {
+    result = "Computer Win!";
+  }
+  if (userChoice[NumberUserChoice] == computerChoice[NumberComputerChoice]) {
+    result = "Draw!";
+  }
+  switch (userChoice[NumberUserChoice]) {
+    case "rock":
+      if (computerChoice[NumberComputerChoice] == "paper")
+        result = "Computer Win!";
+      if (computerChoice[NumberComputerChoice] == "scissors")
+        result = "Player Win!";
+      break;
+
+    case "paper":
+      if (computerChoice[NumberComputerChoice] == "scissors")
+        result = "Computer Win!";
+      if (computerChoice[NumberComputerChoice] == "rock")
+        result = "Player Win!";
+      break;
+
+    case "scissors":
+      if (computerChoice[NumberComputerChoice] == "rock")
+        result = "Computer Win!";
+      if (computerChoice[NumberComputerChoice] == "paper")
+        result = "Player Win!";
+      break;
+  }
+  switch (result) {
+    case "Computer Win!":
+      setPropertyFunction(resultDisplay, "color", "rgb(255, 47, 47)");
+      setPropertyFunction(
+        resultDisplay,
+        "background-color",
+        "rgba(52, 16, 16, 0.609)"
+      );
+      setPropertyFunction(root, "--container-shadow-color", "rgb(255, 47, 47)");
+      break;
+    case "Player Win!":
+      setPropertyFunction(resultDisplay, "color", "rgb(37, 186, 11)");
+      setPropertyFunction(
+        resultDisplay,
+        "background-color",
+        "rgba(16, 52, 18, 0.609)"
+      );
+      setPropertyFunction(root, "--container-shadow-color", "rgb(37, 186, 11)");
+      break;
+    default:
+      setPropertyFunction(resultDisplay, "color", "rgb(97, 97, 97)");
+      setPropertyFunction(
+        resultDisplay,
+        "background-color",
+        "rgba(35, 35, 35, 0.609)"
+      );
+      setPropertyFunction(root, "--container-shadow-color", "rgb(97, 97, 97)");
+      break;
+  }
+  resultDisplay.innerHTML = result;
+  setPropertyFunction(resultPage, "display", "flex");
 }
 playAgainButton.addEventListener("click", () => {
   setPropertyFunction(selectionPage, "display", "flex");
   setPropertyFunction(resultPage, "display", "none");
-  computerChoiceImg.setAttribute("src", "../img/start.png");
-  userChoiceImg.setAttribute("src", "../img/start.png");
-  computerChoiceDisplay.innerHTML = "?";
-  userChoiceDisplay.innerHTML = "?";
+  for (let i = 0; i < 2; i++) {
+    computerChoiceImg[i].setAttribute("src", "../img/start.png");
+    userChoiceImg[i].setAttribute("src", "../img/start.png");
+    computerChoiceDisplay[i].innerHTML = "?";
+    userChoiceDisplay[i].innerHTML = "?";
+  }
+  clearCard(UserCards);
+  clearCard(ComputerCards);
+  showCard(UserCards);
+  showCard(ComputerCards);
+  chooseTitle.innerHTML = "Choose your option:";
+  setPropertyFunction(Clock, "display", "none");
+  ClockTitle.innerHTML = "3";
   setPropertyFunction(root, "--container-shadow-color", "rgb(97, 97, 97)");
+  NumberUserChoice = undefined;
+  playerChoice();
 });
 let theme;
 function setTheme() {
