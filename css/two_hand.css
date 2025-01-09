@@ -186,3 +186,16 @@ body{
     z-index: 4;
     box-shadow: 0px 0px 7px var(--container-shadow-color);
 }
+.clock{
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+}
+.clock-title{
+    font-size: 6em;
+    background:var(--card-text-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
