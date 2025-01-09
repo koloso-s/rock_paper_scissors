@@ -72,13 +72,8 @@ body{
     align-items: end;
 
 }
-.selection-page>.buttons>a{
-    background-color: wheat;
-    border: 1px solid  white;
-}
 .select-btn-parent{
     background-color: var(--background-color-card);
-    border: 3px solid;
     box-shadow: 0px 0px 10px var(--container-shadow-color);
     border-radius: 8px;
 }

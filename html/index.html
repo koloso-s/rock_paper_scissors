@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/style_index.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -25,20 +25,27 @@
         <i class="fa-solid fa-gear"></i>
     </div>
     <script>
+        function setPropertyFunction(object, Property, value) {
+    object.style.setProperty(Property, value);
+  }
         const root = document.documentElement;
         let theme = "dark";
-document.querySelector('.change-of-theme').addEventListener('click',()=>{
-    if(theme == "dark"){
-        root.style.setProperty('--background-color', 'rgb(157, 157, 157)');
-        root.style.setProperty('--container-color', 'rgb(122, 122, 122)');
-        root.style.setProperty('--background-color-card', 'rgb(220, 220, 220)');
-        theme = "white";
+        function setTheme(){
+            theme = localStorage.getItem("theme");
+    if(theme != "dark"){
+        setPropertyFunction(root,'--background-color', 'rgb(157, 157, 157)');
+        setPropertyFunction(root,'--container-color', 'rgb(122, 122, 122)');
+        setPropertyFunction(root,'--background-color-card', 'rgb(220, 220, 220)');
     }else{
-        root.style.setProperty('--background-color', 'rgb(29, 29, 29)');
-        root.style.setProperty('--container-color', 'rgb(15, 15, 15)');
-        root.style.setProperty('--background-color-card', 'rgb(0, 0, 0)');
-        theme = "dark";
+        setPropertyFunction(root,'--background-color', 'rgb(29, 29, 29)');
+        setPropertyFunction(root,'--container-color', 'rgb(15, 15, 15)');
+        setPropertyFunction(root,'--background-color-card', 'rgb(0, 0, 0)');
     }
+        }
+        setTheme();
+document.querySelector('.change-of-theme').addEventListener('click',()=>{
+        theme == "dark"? localStorage.setItem("theme", "white") : localStorage.setItem("theme", "dark");
+        setTheme();
 })
     </script>
 </body>
