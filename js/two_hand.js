@@ -20,7 +20,6 @@ let result;
 const root = document.documentElement;
 console.log(userChoiceDisplay);
 
-//generateResult();
 function setPropertyFunction(object, Property, value) {
   object.style.setProperty(Property, value);
 }

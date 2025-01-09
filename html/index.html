@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/animation.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -17,12 +18,19 @@
     <div class="selection-page" id="select-modal">
         <h2>Choose game mode:</h2>
         <div class="buttons">
-            <div class="select-btn-parent btn"><a href="../html/one_hand.html"><button type="button" class="btn-select">One-hand</button></a></div>
-            <div class="select-btn-parent btn"><a href="../html/two_hand.html"><button type="button" class="btn-select">Two-hand</button></a></div>
+            <div class="select-btn-parent btn one"><a><button type="button" class="btn-select">One-hand</button></a></div>
+            <div class="select-btn-parent btn two"><a><button type="button" class="btn-select">Two-hand</button></a></div>
         </div>
     </div>
     <div class="change-of-theme">
         <i class="fa-solid fa-gear"></i>
+    </div>
+    <div class="animation">
+        <div class="images">
+            <img src="../img/rock.png" alt="rock" class="rock">
+            <img src="../img/paper.png" alt="paper" class="paper">
+            <img src="../img/scissors.png" alt="scissors" class="scissors">
+        </div>
     </div>
     <script>
         function setPropertyFunction(object, Property, value) {
@@ -46,6 +54,21 @@
 document.querySelector('.change-of-theme').addEventListener('click',()=>{
         theme == "dark"? localStorage.setItem("theme", "white") : localStorage.setItem("theme", "dark");
         setTheme();
+})
+const animation = document.querySelector('.animation');
+document.querySelector('.one').addEventListener('click',()=>{
+    setPropertyFunction(animation,'display','flex');
+    setTimeout(() => {
+        window.location.replace("../html/one_hand.html");
+        setPropertyFunction(animation,'display','none');
+    }, "1500");
+})
+document.querySelector('.two').addEventListener('click',()=>{
+    setPropertyFunction(animation,'display','flex');
+    setTimeout(() => {
+        window.location.replace("../html/two_hand.html");
+        setPropertyFunction(animation,'display','none');
+    }, "1500");
 })
     </script>
 </body>
