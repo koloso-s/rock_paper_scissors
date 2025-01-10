@@ -106,9 +106,9 @@ let theme;
 function setTheme(){
     theme = localStorage.getItem("theme");
 if(theme != "dark"){
-setPropertyFunction(root,'--background-color', 'rgb(157, 157, 157)');
-setPropertyFunction(root,'--container-color', 'rgb(122, 122, 122)');
-setPropertyFunction(root,'--background-color-card', 'rgb(220, 220, 220)');
+    setPropertyFunction(root, "--background-color", "rgb(151, 151, 151)");
+    setPropertyFunction(root, "--container-color", "rgb(181, 181, 181)");
+    setPropertyFunction(root, "--background-color-card", "rgb(229, 229, 229)");
 }else{
 setPropertyFunction(root,'--background-color', 'rgb(29, 29, 29)');
 setPropertyFunction(root,'--container-color', 'rgb(15, 15, 15)');
@@ -119,4 +119,7 @@ setTheme();
 document.querySelector('.change-of-theme').addEventListener('click',()=>{
     theme == "dark"? localStorage.setItem("theme", "white") : localStorage.setItem("theme", "dark");
 setTheme();
+})
+document.querySelector('.back-to-menu').addEventListener('click',()=>{
+    window.location.replace("../html/index.html");
 })

@@ -236,3 +236,6 @@ document.querySelector(".change-of-theme").addEventListener("click", () => {
     : localStorage.setItem("theme", "dark");
   setTheme();
 });
+document.querySelector('.back-to-menu').addEventListener('click',()=>{
+  window.location.replace("../html/index.html");
+})

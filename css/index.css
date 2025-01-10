@@ -27,16 +27,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 60%;
-    height: 30%;
+    width: 60vw;
+    padding: 6%;
     border-radius: 10px;
     box-shadow: 0px 0px 19px var(--container-shadow-color);
 }
 .container>.game-title{
-    padding: 20px;
+    padding: 4%;
     border-radius: 10px;
     box-shadow: 2px 2px 20px var(--container-shadow-color);
     background-color: var(--background-color-card);
+    text-align: center;
 }
 .container>.game-title>h1{
     background:var(--card-text-color);
@@ -55,17 +56,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-betweenw;
 }
 .selection-page>h2{
-    height: 40%;
+    height: 40vh;
     font-size: 6vw;
     background:var(--card-text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .selection-page>.buttons{
-    height: 45%;
+    height: 50vh;
     width: 70%;
     display: flex;
     justify-content: space-evenly;
@@ -78,7 +79,7 @@ body{
     border-radius: 8px;
 }
 .btn-select{
-    font-size: 5em;
+    font-size: 5vw;
     padding: 5px 15px;
     background:var(--card-text-color);
     -webkit-background-clip: text;
@@ -94,7 +95,6 @@ body{
 }
 .change-of-theme{
     background-color: var(--background-color-card);
-    padding: 20px;
     border-radius: 12px;
     position: absolute;
     right: 0;
@@ -104,7 +104,8 @@ body{
     box-shadow: 0px 0px 7px var(--container-shadow-color);
 }
 .change-of-theme>i{
-    font-size: 2em;
+    font-size: 2vw;
+    margin: 1vw;
     background:var(--card-text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
